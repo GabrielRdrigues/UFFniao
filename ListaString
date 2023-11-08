@@ -1,0 +1,202 @@
+// #include <stdio.h>
+// #include <string.h>
+
+// int main() {
+//     char string1[100], string2[100];
+    
+//     printf("Digite a primeira string: ");
+//     gets(string1); // Lê a primeira string
+    
+//     printf("Digite a segunda string: ");
+//     gets(string2); // Lê a segunda string
+
+//     int i = 0;
+
+//     while (string1[i] != '\0' && string2[i] != '\0') {
+//         if (string1[i] < string2[i]) {
+//             printf("A string \"%s\" é menor lexicograficamente.\n", string1);
+//             return 0;
+//         } else if (string1[i] > string2[i]) {
+//             printf("A string \"%s\" é menor lexicograficamente.\n", string2);
+//             return 0;
+//         }
+//         i++;
+//     }
+
+//     if (strlen(string1) < strlen(string2)) {
+//         printf("A string \"%s\" é menor lexicograficamente.\n", string1);
+//     } else if (strlen(string1) > strlen(string2)) {
+//         printf("A string \"%s\" é menor lexicograficamente.\n", string2);
+//     } else {
+//         printf("As strings são iguais.\n");
+//     }
+
+//     return 0;
+// }
+
+// #include <stdio.h>
+// #include <string.h>
+// #include <ctype.h>
+
+// int main() {
+//     char string[100];
+//     int vogais = 0, consoantes = 0;
+
+//     printf("Digite uma string: ");
+//     scanf("%s", string);
+
+//     for (int i = 0; string[i] != '\0'; i++) {
+//         char caractere = tolower(string[i]); 
+
+//         if (caractere >= 'a' && caractere <= 'z') {
+//             if (caractere == 'a' || caractere == 'e' || caractere == 'i' || caractere == 'o' || caractere == 'u') {
+//                 vogais++;
+//             } else {
+//                 consoantes++;
+//             }
+//         }
+
+//         // if ((caractere >= 'a' && caractere <= 'z') || (caractere >= 'A' && caractere <= 'Z')) {
+//         //     if (caractere == 'a' || caractere == 'A' || caractere == 'e' || caractere == 'E' || caractere == 'i' || caractere == 'I' || caractere == 'o' || caractere == 'O' || caractere == 'u' || caractere == 'U') {
+//         //         vogais++;
+//         //     } else {
+//         //         consoantes++;
+//         //     }
+//         // }
+//     }
+
+//     printf("Quantidade de vogais: %d\n", vogais);
+//     printf("Quantidade de consoantes: %d\n", consoantes);
+
+//     return 0;
+// }
+
+
+// #include <stdio.h>
+// #include <string.h>
+// #include <ctype.h>
+
+// int main() {
+//     char string[100];
+//     int frequencia[26] = {0}; 
+//     printf("Digite uma string: ");
+//     scanf("%s", string);
+
+//     for (int i = 0; string[i] != '\0'; i++) {
+//         char caractere = tolower(string[i]); 
+//         if (caractere >= 'a' && caractere <= 'z') {
+//             int indice = caractere - 'a'; 
+//             frequencia[indice]++; 
+//         }
+//     }
+
+//     for (int i = 0; i < 26; i++) {
+//         if (frequencia[i] > 0) {
+//             printf("A letra '%c' aparece %d vezes na string.\n", 'a' + i, frequencia[i]);
+//         }
+//     }
+
+//     return 0;
+// }
+
+
+// #include <stdio.h>
+// #include <string.h>
+
+// int main() {
+//     char string[100];
+//     int i, j, tamanho, palindromo = 1;
+
+//     printf("Digite uma string: ");
+//     scanf("%s", string);
+
+//     tamanho = strlen(string);
+
+//     for (i = 0, j = tamanho - 1; i < j; i++, j--) {
+//         if (string[i] != string[j]) {
+//             palindromo = 0;
+//             break;
+//         }
+//     }
+
+//     if (palindromo) {
+//         printf("A string é um palíndromo.\n");
+//     } else {
+//         printf("A string não é um palíndromo.\n");
+//     }
+
+//     return 0;
+// }
+
+// #include <stdio.h>
+// #include <string.h>
+
+// int main() {
+//     char T[100], P[100];
+
+//     printf("Digite a string T: ");
+//     scanf("%s", T);
+
+//     printf("Digite a string P: ");
+//     scanf("%s", P); 
+
+//     int tamanhoT = strlen(T);
+//     int tamanhoP = strlen(P);
+//     int encontrado = 0; 
+
+//     for (int i = 0; i <= tamanhoT - tamanhoP; i++) {
+//         int j;
+//         for (j = 0; j < tamanhoP; j++) {
+//             if (T[i + j] != P[j]) {
+//                 break;
+//             }
+//         }
+//         if (j == tamanhoP) {
+//             encontrado = 1; 
+//             break; 
+//         }
+//     }
+
+//     if (encontrado) {
+//         printf("A string P é uma substring de T.\n");
+//     } else {
+//         printf("A string P não é uma substring de T.\n");
+//     }
+
+//     return 0;
+// }
+
+// #include <stdio.h>
+// #include <string.h>
+
+// int main() {
+//     int n;
+
+//     printf("Digite o número de strings: ");
+//     scanf("%d", &n);
+
+//     char vetorDeStrings[100][100];
+
+//     for (int i = 0; i < n; i++) {
+//         printf("Digite a string %d: ", i + 1);
+//         scanf("%s", vetorDeStrings[i]);
+//     }
+
+//     for (int i = 0; i < n - 1; i++) {
+//         for (int j = i + 1; j < n; j++) {
+//             if (strcmp(vetorDeStrings[i], vetorDeStrings[j]) > 0) {
+//                 char temp[100];
+//                 strcpy(temp, vetorDeStrings[i]);
+//                 strcpy(vetorDeStrings[i], vetorDeStrings[j]);
+//                 strcpy(vetorDeStrings[j], temp);
+//             }
+//         }
+//     }
+
+//     printf("Vetor de strings ordenado lexicograficamente:\n");
+//     for (int i = 0; i < n; i++) {
+//         printf("%s\n", vetorDeStrings[i]);
+//     }
+
+//     return 0;
+// }
